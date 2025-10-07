@@ -1,0 +1,17 @@
+
+
+.layout-container {
+    background-color: rgb(42, 42, 60);
+}
+
+.header {
+    background-color: rgb(42, 42, 60);
+    margin: 0px;
+}
+
+.pokedex-title {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin: 0px;
+}
