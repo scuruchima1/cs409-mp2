@@ -35,7 +35,7 @@ const GalleryItem = ({ name, id, imageSrc }: GalleryItemProp) => {
   const navigate = useNavigate();
   return  (
     <button className="gallery-item" onClick={() => navigate(`/pokemon/${id}`)}>
-      <img src={imageSrc} className="gallery-item-sprite"/>
+      <img src={imageSrc} alt={name} className="gallery-item-sprite"/>
       <p>{capitalizeFirstLetter(name)}</p>
     </button>
   )
@@ -43,7 +43,6 @@ const GalleryItem = ({ name, id, imageSrc }: GalleryItemProp) => {
 
 function Gallery() {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getPokemonSprites() {
@@ -63,8 +62,6 @@ function Gallery() {
         setPokemonList(detailed);
       } catch (err) {
         console.error("Error fetching Pokémon:", err);
-      } finally {
-        setLoading(false);
       }
     }
 

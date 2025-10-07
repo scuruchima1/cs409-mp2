@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import pokeapi from "../api/pokeapi";
 import './pokemonInfo.css'
 
@@ -26,20 +26,15 @@ function title(val: string | undefined) {
 function PokemonInfo() {
     const {id} = useParams<{ id: string }>();
     const [pokemon, setPokemon] = useState<Pokemon | null>(null);
-    const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getPokemon() {
       try {
-
         const res = await pokeapi.get<Pokemon>(`/pokemon/${id}`);
         const results = res.data;
-
         setPokemon(results);
       } catch (err) {
         console.error("Error fetching Pokémon:", err);
-      } finally {
-        setLoading(false);
       }
     }
 
@@ -50,7 +45,7 @@ function PokemonInfo() {
     <div className="pokemon-page">
       <div className="pokemon-card">
         <h1>{title(pokemon?.name)}</h1>
-        <img src={pokemon?.sprites.front_default} className="pokemon-sprite"/>
+        <img src={pokemon?.sprites.front_default} alt={pokemon?.name} className="pokemon-sprite"/>
         <div>
             <p>Species: {title(pokemon?.species.name)}</p>
             <p>Height: {pokemon?.height}</p>
