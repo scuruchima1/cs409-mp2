@@ -17,13 +17,6 @@ interface Pokemon {
     }
 }
 
-interface PokemonTypeListResponse {
-    results: {
-        name: string;
-        url: string;
-    }[];
-}
-
 function title(val: string | undefined) {
     if (val == null) {
         return "";
@@ -35,21 +28,6 @@ function PokemonInfo() {
     const navigate = useNavigate();
     const {id} = useParams<{ id: string }>();
     const [pokemon, setPokemon] = useState<Pokemon | null>(null);
-    const [pokemonTypeListResponse, setPokemonTypes] = useState<PokemonTypeListResponse>()
-
-  useEffect(() => {
-    async function getPokemonTypes() {
-      try {
-        const res = await pokeapi.get<PokemonTypeListResponse>(`/type`);
-        const results = res.data;
-        setPokemonTypes(results);
-      } catch (err) {
-        console.error("Error fetching Pokémon Types:", err);
-      }
-    }
-
-    getPokemonTypes()
-  });
 
   useEffect(() => {
     async function getPokemon() {

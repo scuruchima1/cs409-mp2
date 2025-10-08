@@ -56,7 +56,6 @@ function PokemonSearch() {
     const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
     const [allPokemon, setAllPokemon] = useState<Pokemon[]>([]);
     const [filtered, setFiltered] = useState<Pokemon[]>([]);
-    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         async function loadAll() {
@@ -82,8 +81,6 @@ useEffect(() => {
       return;
     }
 
-    setLoading(true);
-
     const lower = searchTerm.toLowerCase();
     let matches = allPokemon.filter(
       (p) => p.name.includes(lower) || String(p.id).includes(lower)
@@ -100,7 +97,6 @@ useEffect(() => {
     });
 
     setFiltered(matches);
-    setLoading(false);
   }, [searchTerm, sortBy, sortOrder, allPokemon]);
 
   return (

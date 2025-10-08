@@ -60,7 +60,6 @@ function Gallery() {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [pokemonTypeListResponse, setPokemonTypes] = useState<PokemonTypeListResponse>()
   const [selectedType, setSelectedType] = useState<string>("all");
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function getPokemonTypes() {
@@ -79,7 +78,6 @@ function Gallery() {
     // Fetch Pokémon list (filtered)
   useEffect(() => {
     async function getPokemon() {
-      setLoading(true);
       try {
         let urls: string[] = [];
 
@@ -101,8 +99,6 @@ function Gallery() {
         setPokemonList(detailed);
       } catch (err) {
         console.error("Error fetching Pokémon:", err);
-      } finally {
-        setLoading(false);
       }
     }
 
