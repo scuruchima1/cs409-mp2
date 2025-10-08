@@ -27,6 +27,9 @@ interface PokemonListResponse {
 interface SearchItemProp {
   name: string;
   id: number;
+  exp: number;
+  weight: number;
+  height: number;
   imageSrc: string;
 }
 
@@ -39,12 +42,21 @@ function title(val: string | undefined) {
 }
 
 
-const SearchItem = ({ name, id, imageSrc }: SearchItemProp) => {
+const SearchItem = ({ name, id, exp, weight, height, imageSrc }: SearchItemProp) => {
   const navigate = useNavigate();
   return  (
     <button className="search-item" onClick={() => navigate(`/pokemon/${id}`)}>
-        <p className="search-text">{title(name)}</p>
-        <p>ID: {id}</p>
+      <div>
+        <div className="poke-info">
+          <p className="search-text">{title(name)}</p>
+          <p>ID: {id}</p>
+        </div>
+        <div className="poke-info-details">
+          <p>Weight: {weight}</p>
+          <p>Height: {height}</p>
+          <p>Base Experience: {exp}</p>   
+        </div>     
+      </div>
         <img src={imageSrc} alt={name} className="search-sprite"/>
     </button>
   )
@@ -60,7 +72,7 @@ function PokemonSearch() {
     useEffect(() => {
         async function loadAll() {
             try {
-                const res = await pokeapi.get<PokemonListResponse>("/pokemon?limit=1000");
+                const res = await pokeapi.get<PokemonListResponse>("/pokemon?limit=10000");
                 const detailed = await Promise.all(
                     res.data.results.map(async (p) => {
                     const detail = await pokeapi.get<Pokemon>(`/pokemon/${p.name}`);
@@ -119,9 +131,7 @@ useEffect(() => {
             {filtered.map((p) => (
             <SearchItem
               key={p.id}
-              id={p.id}
-              name={p.name}
-              imageSrc={p.sprites.front_default}
+              name={p.name} id={p.id} weight={p.weight} height={p.height} exp={p.base_experience} imageSrc={p.sprites.front_default}
             />
           ))}
         </form>

@@ -66,6 +66,8 @@
 
     border: 2px solid rgb(150, 147, 141);
 
+    padding-block: 5.5rem;
+
     width: 29rem;
     height: 10rem;
 }
@@ -88,4 +90,23 @@
     image-rendering: pixelated;
 }
 
+.poke-info {
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+    line-height: 0;  
+    /* height: 0.2rem; */
+}
+
+.poke-info-details {
+    display: flex;
+    flex-direction: column; 
+    text-align: left;
+    line-height: 0.025;  
+
+    background-color: rgb(194, 186, 170);
+    border-radius: 5px;
+    border: 5px solid rgb(194, 186, 170);
+}
 
