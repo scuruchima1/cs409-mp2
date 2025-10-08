@@ -1,10 +1,41 @@
 .gallery-view {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
     padding-inline: 10rem;
     padding-block: 3rem;
+}
+
+.gallery-filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin: 1rem;
+}
+
+.filter-button {
+    color: rgb(164, 160, 153);
+    background: rgba(0,0,0,0);
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    user-select: none;  
+}
+
+.filter-button.active {
+    color: rgb(224, 220, 212);
+    text-decoration: underline;
+}
+
+.gallery-items{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .gallery-item {

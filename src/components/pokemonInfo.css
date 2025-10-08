@@ -6,15 +6,22 @@
     width: 100vw;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-
     align-items: center;
 }
 
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+}
+
 .pokemon-card {
-    background-color: white;
+    background-color: rgb(224, 220, 212);
     color: black;
 
     display: flex;
@@ -34,4 +41,23 @@
     image-rendering: pixelated;
     width: 15rem;
     height: 15rem;
+}
+
+.nav-button {
+    color: rgb(224, 220, 212);
+    background: rgba(0,0,0,0);
+    border: none;
+    font-weight: bold;
+    font-size: 4rem;
+    cursor: pointer;
+    user-select: none;
+    /* position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; */
+}
+
+.nav-button:disabled {
+    color: rgb(109, 107, 103);
+    cursor: default;
 }

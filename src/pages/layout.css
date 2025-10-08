@@ -9,6 +9,34 @@
     margin: 0px;
 }
 
+.header-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    color: white;
+
+}
+
+.links {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1.3rem;
+
+    margin: 1rem;
+}
+
+.links:hover {
+  text-decoration: underline; /* optional hover effect */
+}
+
+.links:active {
+    color: rgb(176, 176, 176);
+}
+
 .pokedex-title {
     font-weight: bold;
     color: white;

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Layout from './pages/layout';
 import SearchPage from './pages/searchPage';
-import HomePage from "./pages/homePage";
+import GalleryPage from './pages/galleryPage';
 import PokemonInfo from './components/pokemonInfo';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="search" element={<SearchPage />}/>
-            <Route path="gallery" element={<HomePage />} />
+            <Route path="gallery" element={<GalleryPage />} />
             <Route path="pokemon/:id" element={<PokemonInfo />}/>
           </Route>
         </Routes>

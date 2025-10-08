@@ -6,10 +6,12 @@ function Layout() {
     <div className="layout-container">
       <header className="header">
         <h1 className="pokedex-title">The Pokédex</h1>
-        <nav>
-          <Link to="/search">Search</Link>
-          <Link to="/gallery">Gallery</Link>
-        </nav>
+        <div className="header-links">
+            <nav>
+            <Link to="/search" className="links">Search</Link>
+            <Link to="/gallery" className="links">Gallery</Link>
+            </nav>
+        </div>
       </header>
       <main>
         <Outlet />
