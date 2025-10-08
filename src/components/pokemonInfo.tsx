@@ -122,7 +122,7 @@ function PokemonInfo() {
                   </div>
                 )}
             </div>
-            <button className="nav-button" onClick={() => navigate(`/pokemon/${pokemon?.id! + 1}`)} disabled={pokemon?.id! >= 1000}> &gt;</button>
+            <button className="nav-button" onClick={() => navigate(`/pokemon/${pokemon?.id! + 1}`)} disabled={pokemon?.id! >= 3000}> &gt;</button>
         </div>
     </div>
   );
